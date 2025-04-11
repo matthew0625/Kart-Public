@@ -221,7 +221,7 @@ set(SRB2_CONFIG_HAVE_BLUA ON CACHE BOOL
 	"Enable Lua interpreter support")
 set(SRB2_CONFIG_HAVE_PNG OFF CACHE BOOL
 	"Enable PNG support. Depends on zlib, so will be disabled if you don't enable that too.")
-set(SRB2_CONFIG_HAVE_ZLIB ON CACHE BOOL
+set(SRB2_CONFIG_HAVE_ZLIB OFF CACHE BOOL
 	"Enable zlib support.")
 set(SRB2_CONFIG_HAVE_GME OFF CACHE BOOL
 	"Enable GME support.")
