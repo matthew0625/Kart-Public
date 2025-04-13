@@ -94,7 +94,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 set(CMAKE_PDB_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
 # Set EXE names so the assets CMakeLists can refer to its target
-set(SRB2_SDL2_EXE_NAME srb2kart CACHE STRING "Executable binary output name")
+set(SRB2_SDL2_EXE_NAME main STRING "Executable binary output name")
 set(SRB2_WIN_EXE_NAME srb2kartdd CACHE STRING "Executable binary output name for DirectDraw build")
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/src)
