@@ -393,6 +393,8 @@ if(${SRB2_CONFIG_HAVE_PNG} AND ${SRB2_CONFIG_HAVE_ZLIB})
 			set(SRB2_HAVE_PNG ON)
 			add_definitions(-DHAVE_PNG)
 			add_definitions(-D_LARGEFILE64_SOURCE)
+			set(PNG_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/thirdparty/libpng")
+
 		else()
 			message(WARNING "You have specified that PNG is available but it was not found. SRB2Kart may not compile correctly.")
 		endif()
@@ -401,6 +403,8 @@ endif()
 
 if(${SRB2_CONFIG_HAVE_CURL})
 	set(CURL_FOUND ON)
+	set(CURL_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/thirdparty/curl/include)
+	set(CURL_LIBRARIES "-L${CMAKE_SOURCE_DIR}/thirdparty/curl/libs/arm64-v8a -lcurl")
 	#target_link_libraries(SRB2 PRIVATE CURL::curl)
 	set(SRB2_HAVE_CURL ON)
 	add_definitions(-DHAVE_CURL)
@@ -495,6 +499,8 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 add_definitions(-DCMAKECONFIG)
+add_definitions(-DNOMUMBLE)
+add_definitions(-DSTDC_HEADERS)
 
 #add_library(SRB2Core STATIC
 #	${SRB2_CORE_SOURCES}
@@ -506,9 +512,21 @@ add_definitions(-DCMAKECONFIG)
 #	${SRB2_BLUA_SOURCES}
 #	${SRB2_BLUA_HEADERS}
 #)
+set(SRB2_ANDROID_SOURCES
+		android-jni/jni_android.c
+		android-jni/ndk_crash_handler.c
+		android-jni/ndk_strings.c
+)
+set(SRB2_ANDROID_HEADERS
+		android-jni/jni_android.h
+		android-jni/ndk_crash_handler.h
+		android-jni/ndk_strings.h
+)
+prepend_sources(SRB2_ANDROID_SOURCES)
+prepend_sources(SRB2_ANDROID_HEADERS)
 
+source_group("Android" FILES ${SRB2_ANDROID_SOURCES} ${SRB2_ANDROID_HEADERS})
 add_subdirectory(sdl)
-add_subdirectory(android-jni)
 
 if(NOT ${SRB2_SDL2_AVAILABLE} AND NOT ${SRB2_WIN32_AVAILABLE})
 	message(FATAL_ERROR "There are no targets available to build an SRB2Kart executable. :(")
