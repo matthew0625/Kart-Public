@@ -11,17 +11,16 @@
 
 #ifdef CMAKECONFIG
 
-// Base SRB2 hashes
-#define ASSET_HASH_SRB2_SRB      "${SRB2_ASSET_srb2.srb_HASH}"
+#define ASSET_HASH_SRB2_SRB      "c1b9577687f8a795104aef4600720ea7"
 #ifdef USE_PATCH_DTA
-#define ASSET_HASH_PATCH_DTA     "${SRB2_ASSET_patch.dta_HASH}"
+#define ASSET_HASH_PATCH_DTA     "b04fd9624bfd94dc96dcf4f400f7deb4"
 #endif
 
 // SRB2Kart-specific hashes
-#define ASSET_HASH_GFX_KART      "${SRB2_ASSET_gfx.kart_HASH}"
-#define ASSET_HASH_TEXTURES_KART "${SRB2_ASSET_textures.kart_HASH}"
-#define ASSET_HASH_CHARS_KART    "${SRB2_ASSET_chars.kart_HASH}"
-#define ASSET_HASH_MAPS_KART     "${SRB2_ASSET_maps.kart_HASH}"
+#define ASSET_HASH_GFX_KART      "06f86ee16136eb8a7043b15001797034"
+#define ASSET_HASH_TEXTURES_KART "abb53d56aba47c3a8cb0f764da1c8b80"
+#define ASSET_HASH_CHARS_KART    "e2c428347dde52858a3dacd29fc5b964"
+#define ASSET_HASH_MAPS_KART     "d051e55141ba736582228c456953cd98"
 #ifdef USE_PATCH_KART
 #define ASSET_HASH_PATCH_KART    "00000000000000000000000000000000"
 #endif
