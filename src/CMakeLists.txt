@@ -219,15 +219,15 @@ source_group("Assembly" FILES ${SRB2_ASM_SOURCES} ${SRB2_NASM_SOURCES})
 ### Configuration
 set(SRB2_CONFIG_HAVE_BLUA ON CACHE BOOL
 	"Enable Lua interpreter support")
-set(SRB2_CONFIG_HAVE_PNG OFF CACHE BOOL
+set(SRB2_CONFIG_HAVE_PNG ON CACHE BOOL
 	"Enable PNG support. Depends on zlib, so will be disabled if you don't enable that too.")
-set(SRB2_CONFIG_HAVE_ZLIB OFF CACHE BOOL
+set(SRB2_CONFIG_HAVE_ZLIB ON CACHE BOOL
 	"Enable zlib support.")
 set(SRB2_CONFIG_HAVE_GME OFF CACHE BOOL
 	"Enable GME support.")
 set(SRB2_CONFIG_HAVE_DISCORDRPC OFF CACHE BOOL
 	"Enable Discord rich presence support.")
-set(SRB2_CONFIG_HAVE_CURL OFF CACHE BOOL
+set(SRB2_CONFIG_HAVE_CURL ON CACHE BOOL
 	"Enable curl support, used for downloading files via HTTP.")
 set(SRB2_CONFIG_HWRENDER OFF CACHE BOOL
 	"Enable hardware rendering through OpenGL.")
@@ -383,13 +383,11 @@ endif()
 
 if(${SRB2_CONFIG_HAVE_ZLIB})
 	set(ZLIB_FOUND ON)
-	target_link_libraries(SRB2 PRIVATE -lz)
 	add_definitions(-DHAVE_ZLIB)
 endif()
 
 if(${SRB2_CONFIG_HAVE_PNG} AND ${SRB2_CONFIG_HAVE_ZLIB})
 	if (${ZLIB_FOUND})
-		target_link_libraries(SRB2 PRIVATE libpng::libpng)
 		set(PNG_FOUND ON)
 		if(${PNG_FOUND})
 			set(SRB2_HAVE_PNG ON)
@@ -403,7 +401,7 @@ endif()
 
 if(${SRB2_CONFIG_HAVE_CURL})
 	set(CURL_FOUND ON)
-	target_link_libraries(SRB2 PRIVATE CURL::curl)
+	#target_link_libraries(SRB2 PRIVATE CURL::curl)
 	set(SRB2_HAVE_CURL ON)
 	add_definitions(-DHAVE_CURL)
 endif()
