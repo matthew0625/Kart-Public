@@ -2,12 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 30
-    namespace 'org.kartkrew.ringracers'
+    namespace 'org.kartkrew.srb2k'
     lintOptions {
         abortOnError false
     }
     defaultConfig {
-        applicationId "org.kartkrew.ringracers"
+        applicationId "org.kartkrew.srb2k"
 
         minSdkVersion  28
         targetSdkVersion 30
@@ -24,7 +24,7 @@ android {
         }
 
         // This generates the APK filename
-        def srb2PackageName = "ringracers-android"
+        def srb2PackageName = "srb2k-android"
 
         // Game version string
         srb2PackageName += "-v" + (defaultConfig.versionName).replace(".", "")
