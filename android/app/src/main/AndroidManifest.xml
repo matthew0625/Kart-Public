@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.kartkrew.srb2kart"
-    android:versionCode="230"
-    android:versionName="2.3"
+    package="org.kartkrew.srb2k"
+    android:versionCode="160"
+    android:versionName="1.6"
     android:installLocation="auto">
 
     <!-- OpenGL ES 2.0 -->
